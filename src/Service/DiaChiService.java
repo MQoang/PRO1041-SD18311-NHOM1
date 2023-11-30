@@ -1,0 +1,102 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Service;
+
+import Model.ChiTietPhieuGiaoHang;
+import Model.DiaChiGiaoHang;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author PC MSI
+ */
+public class DiaChiService {
+    public List<DiaChiGiaoHang> getAll() {
+
+        String sql = """
+                    SELECT [Id]
+                          ,[MaDiaChi]
+                          ,[DiaChi]
+                          ,[GhiChu]
+                        FROM [dbo].[DiaChiGiaoHang]
+                    """;
+        try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
+            ResultSet rs = ps.executeQuery();
+            List<DiaChiGiaoHang> list = new ArrayList<>();
+            while (rs.next()) {
+                DiaChiGiaoHang dcgh = new DiaChiGiaoHang(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                list.add(dcgh);
+            }
+            return list;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public Boolean Add(DiaChiGiaoHang dc) {
+
+        String sql = """
+                    INSERT INTO [dbo].[DiaChiGiaoHang]
+                            ([Id]
+                            ,[MaDiaChi]
+                            ,[DiaChi]
+                            ,[GhiChu])
+                    VALUES (?,?,?)
+                    """;
+        int check = 0;
+        try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
+            ps.setObject(1, dc.getId());
+            ps.setObject(2, dc.getMaDiaChi());
+            ps.setObject(3, dc.getDiaChi());
+            ps.setObject(4, dc.getGhiChu());
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
+    public Boolean Update(DiaChiGiaoHang dc, String ma) {
+        String sql = """
+                  UPDATE [dbo].[DiaChiGiaoHang]
+                                    SET [Id] = ?
+                                       ,[MaDiaChi] = ?
+                                       ,[DiaChi] = ?
+                                       ,[GhiChu] = ?
+                                  WHERE MaDiaChi = ?         
+                     """;
+        int check = 0;
+        try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
+            ps.setObject(1, dc.getId());
+            ps.setObject(2, dc.getMaDiaChi());
+            ps.setObject(3, dc.getDiaChi());
+            ps.setObject(4, dc.getGhiChu());
+            ps.setObject(5, ma);
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+
+    public Boolean Xoa(String ma) {
+        String sql = """
+                    DELETE FROM [dbo].[DiaChiGiaoHang]
+                            WHERE MaDiaChi = ?               
+                     """;
+        int check = 0;
+        try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
+            ps.setObject(1, ma);
+            check = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+        return check > 0;
+    }
+}

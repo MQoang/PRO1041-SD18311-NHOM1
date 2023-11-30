@@ -20,17 +20,14 @@ public class NguoiNhanService {
     public List<NguoiNhan> getAll() {
 
         String sql = """
-                    SELECT [MaNguoiNhan]
-                          ,[Id]
-                          ,[HoTen]
-                          ,[DienThoai]
-                        FROM [dbo].[NguoiNhanHang]
+                    SELECT NguoiNhanHang.MaNguoiNhan,NguoiNhanHang.Id,NguoiNhanHang.HoTen,NguoiNhanHang.DienThoai,DiaChiGiaoHang.MaDiaChi,DiaChiGiaoHang.DiaChi,DiaChiGiaoHang.GhiChu 
+                        FROM NguoiNhanHang INNER JOIN DiaChiGiaoHang ON NguoiNhanHang.Id = DiaChiGiaoHang.Id
                     """;
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
             ResultSet rs = ps.executeQuery();
             List<NguoiNhan> list = new ArrayList<>();
             while (rs.next()) {
-                NguoiNhan nn = new NguoiNhan(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4));
+                NguoiNhan nn = new NguoiNhan(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
                 list.add(nn);
             }
             return list;
@@ -43,7 +40,7 @@ public class NguoiNhanService {
         String sql = """
                     INSERT INTO [dbo].[NguoiNhanHang]
                                     ([MaNguoiNhan]
-                                    ,[MaPhieu]
+                                    ,[Id]
                                     ,[HoTen]
                                     ,[DienThoai])
                               VALUES (?,?,?,?)
@@ -61,15 +58,15 @@ public class NguoiNhanService {
         return check > 0;
     }
 
-    public Boolean XoaNguoiNhan(String ten) {
+    public Boolean XoaNguoiNhan(String ma) {
         String sql = """
                     DELETE FROM [dbo].[NguoiNhanHang]
-                                        WHERE HoTen =?
+                                        WHERE MaNguoiNhan =?
                     """;
 
         int check = 0;
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
-            ps.setObject(1, ten);
+            ps.setObject(1, ma);
             check = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace(System.out);
@@ -77,14 +74,14 @@ public class NguoiNhanService {
         return check > 0;
     }
 
-    public Boolean Update(NguoiNhan nn, String ten) {
+    public Boolean Update(NguoiNhan nn, String ma) {
         String sql = """
                    UPDATE [dbo].[NguoiNhanHang]
                                    SET [MaNguoiNhan] = ?
-                                      ,[MaPhieu] = ?
+                                      ,[Id] = ?
                                       ,[HoTen] = ?
                                       ,[DienThoai] = ?
-                                   WHERE HoTen = ?
+                                   WHERE MaNguoiNhan = ?
                     """;
 
         int check = 0;
@@ -94,7 +91,7 @@ public class NguoiNhanService {
             ps.setObject(2, nn.getId());
             ps.setObject(3, nn.getHoTen());
             ps.setObject(4, nn.getSdt());
-            ps.setObject(5, ten);
+            ps.setObject(5, ma);
             check = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace(System.out);

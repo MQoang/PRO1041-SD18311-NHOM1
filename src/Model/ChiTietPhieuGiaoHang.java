@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class ChiTietPhieuGiaoHang {
 
     private String maChiTiet;
-    private int Id;
+    private String Id;
     private String maSanPham;
     private int soLuong;
     private BigDecimal giaBan;
@@ -21,7 +21,7 @@ public class ChiTietPhieuGiaoHang {
     public ChiTietPhieuGiaoHang() {
     }
 
-    public ChiTietPhieuGiaoHang(String maChiTiet, int Id, String maSanPham, int soLuong, BigDecimal giaBan) {
+    public ChiTietPhieuGiaoHang(String maChiTiet, String Id, String maSanPham, int soLuong, BigDecimal giaBan) {
         this.maChiTiet = maChiTiet;
         this.Id = Id;
         this.maSanPham = maSanPham;
@@ -37,11 +37,11 @@ public class ChiTietPhieuGiaoHang {
         this.maChiTiet = maChiTiet;
     }
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int Id) {
+    public void setId(String Id) {
         this.Id = Id;
     }
 

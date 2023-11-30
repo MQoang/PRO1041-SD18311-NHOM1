@@ -53,7 +53,7 @@ public class FormChiTiet extends javax.swing.JFrame {
     
     private ChiTietPhieuGiaoHang getForm() {
         ChiTietPhieuGiaoHang ct = new ChiTietPhieuGiaoHang();
-        ct.setId(Integer.parseInt(txtId.getText()));
+        ct.setId(txtId.getText());
         ct.setMaChiTiet(txtMaChiTiet.getText());
         ct.setMaSanPham(txtMaSanPham.getText());
         ct.setSoLuong(Integer.parseInt(txtSoLuong.getText()));

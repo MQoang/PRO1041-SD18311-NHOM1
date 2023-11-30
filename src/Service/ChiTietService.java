@@ -32,7 +32,7 @@ public class ChiTietService {
             ResultSet rs = ps.executeQuery();
             List<ChiTietPhieuGiaoHang> list = new ArrayList<>();
             while (rs.next()) {
-                ChiTietPhieuGiaoHang gh = new ChiTietPhieuGiaoHang(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getBigDecimal(5));
+                ChiTietPhieuGiaoHang gh = new ChiTietPhieuGiaoHang(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getBigDecimal(5));
                 list.add(gh);
             }
             return list;

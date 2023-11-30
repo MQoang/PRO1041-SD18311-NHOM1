@@ -119,4 +119,27 @@ public class PhieuGiaoHangService {
         return check > 0;
     }
 
+    public List<PhieuGiaoHang> TimKiem(String ma, String ten) {
+
+        String sql = """
+                    SELECT PhieuGiaoHang.MaPhieu,PhieuGiaoHang.ID, PhieuGiaoHang.MaKhachHang,PhieuGiaoHang.TenKhachHang,PhieuGiaoHang.SoDienThoai,PhieuGiaoHang.NgayGiao,
+                           PhieuGiaoHang.DiaChiGiao,PhieuGiaoHang.GhiChu,PhieuGiaoHang.TongTien,ChiTietPhieuGiaoHang.MaChiTiet,ChiTietPhieuGiaoHang.SoLuong
+                                    FROM PhieuGiaoHang INNER JOIN ChiTietPhieuGiaoHang ON PhieuGiaoHang.ID = ChiTietPhieuGiaoHang.ID
+                                    WHERE PhieuGiaoHang.MaPhieu LIKE ? or PhieuGiaoHang.TenKhachHang LIKE ?
+                    """;
+        try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
+            ps.setObject(1, ma);
+            ps.setObject(2, ten);
+            ResultSet rs = ps.executeQuery();
+            List<PhieuGiaoHang> list = new ArrayList<>();
+            while (rs.next()) {
+                PhieuGiaoHang pgh = new PhieuGiaoHang(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getBigDecimal(9), rs.getString(10), rs.getInt(11));
+                list.add(pgh);
+            }
+            return list;
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
 }
