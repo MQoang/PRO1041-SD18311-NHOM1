@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class ChiTietService {
 
-    public List<ChiTietPhieuGiaoHang> getAll() {
+    public List<ChiTietPhieuGiaoHang> getAllChiTiet() {
 
         String sql = """
                     SELECT [MaChiTiet]
@@ -41,7 +41,7 @@ public class ChiTietService {
         return null;
     }
 
-    public Boolean Add(ChiTietPhieuGiaoHang nv) {
+    public Boolean AddChiTiet(ChiTietPhieuGiaoHang ct) {
 
         String sql = """
                     INSERT INTO [dbo].[ChiTietPhieuGiaoHang]
@@ -54,11 +54,11 @@ public class ChiTietService {
                     """;
         int check = 0;
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
-            ps.setObject(1, nv.getMaChiTiet());
-            ps.setObject(2, nv.getId());
-            ps.setObject(3, nv.getMaSanPham());
-            ps.setObject(4, nv.getSoLuong());
-            ps.setObject(5, nv.getGiaBan());
+            ps.setObject(1, ct.getMaChiTiet());
+            ps.setObject(2, ct.getId());
+            ps.setObject(3, ct.getMaSanPham());
+            ps.setObject(4, ct.getSoLuong());
+            ps.setObject(5, ct.getGiaBan());
             check = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace(System.out);
@@ -66,7 +66,7 @@ public class ChiTietService {
         return check > 0;
     }
 
-    public Boolean Update(ChiTietPhieuGiaoHang ct, String ma) {
+    public Boolean UpdateChiTiet(ChiTietPhieuGiaoHang ct, String ma) {
         String sql = """
                   UPDATE [dbo].[ChiTietPhieuGiaoHang]
                                   SET [MaChiTiet] = ?
@@ -91,7 +91,7 @@ public class ChiTietService {
         return check > 0;
     }
 
-    public Boolean Xoa(String ma) {
+    public Boolean XoaChiTiet(String ma) {
         String sql = """
                    DELETE FROM [dbo].[ChiTietPhieuGiaoHang]
                                   WHERE MaChiTiet = ?               

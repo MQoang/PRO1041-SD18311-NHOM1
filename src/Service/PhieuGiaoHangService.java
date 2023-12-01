@@ -18,7 +18,7 @@ import Service.DBConnect;
  */
 public class PhieuGiaoHangService {
 
-    public List<PhieuGiaoHang> getAll() {
+    public List<PhieuGiaoHang> getAllPhieuGiao() {
         String sql = """
                         SELECT PhieuGiaoHang.MaPhieu,PhieuGiaoHang.ID, PhieuGiaoHang.MaKhachHang,PhieuGiaoHang.TenKhachHang,PhieuGiaoHang.SoDienThoai,PhieuGiaoHang.NgayGiao,
                                              	PhieuGiaoHang.DiaChiGiao,PhieuGiaoHang.GhiChu,PhieuGiaoHang.TongTien,ChiTietPhieuGiaoHang.MaChiTiet,ChiTietPhieuGiaoHang.SoLuong
@@ -38,7 +38,7 @@ public class PhieuGiaoHangService {
         return null;
     }
 
-    public boolean addPhieu(PhieuGiaoHang pgh) {
+    public boolean addPhieuGiao(PhieuGiaoHang pgh) {
         String sql = """
                      INSERT INTO [dbo].[PhieuGiaoHang]
                                      ([MaPhieu]
@@ -71,7 +71,7 @@ public class PhieuGiaoHangService {
         return check > 0;
     }
 
-    public boolean delete(String ma) {
+    public boolean deletePhieuGiao(String ma) {
         String sql = """
                      DELETE FROM [dbo].[PhieuGiaoHang]
                                  WHERE MaPhieu = ?
@@ -86,7 +86,7 @@ public class PhieuGiaoHangService {
         return check > 0;
     }
 
-    public boolean update(PhieuGiaoHang pgh, String ma) {
+    public boolean updatePhieuGiao(PhieuGiaoHang pgh, String ma) {
         String sql = """
                      UPDATE [dbo].[PhieuGiaoHang]
                          SET [MaPhieu] = ?

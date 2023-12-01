@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class NguoiNhanService {
 
-    public List<NguoiNhan> getAll() {
+    public List<NguoiNhan> getAllNguoiNhan() {
 
         String sql = """
                     SELECT NguoiNhanHang.MaNguoiNhan,NguoiNhanHang.Id,NguoiNhanHang.HoTen,NguoiNhanHang.DienThoai,DiaChiGiaoHang.MaDiaChi,DiaChiGiaoHang.DiaChi,DiaChiGiaoHang.GhiChu 
@@ -61,7 +61,7 @@ public class NguoiNhanService {
     public Boolean XoaNguoiNhan(String ma) {
         String sql = """
                     DELETE FROM [dbo].[NguoiNhanHang]
-                                        WHERE MaNguoiNhan =?
+                                        WHERE MaNguoiNhan = ?
                     """;
 
         int check = 0;
@@ -74,7 +74,7 @@ public class NguoiNhanService {
         return check > 0;
     }
 
-    public Boolean Update(NguoiNhan nn, String ma) {
+    public Boolean UpdateNguoiNhan(NguoiNhan nn, String ma) {
         String sql = """
                    UPDATE [dbo].[NguoiNhanHang]
                                    SET [MaNguoiNhan] = ?

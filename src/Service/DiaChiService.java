@@ -17,7 +17,7 @@ import java.util.List;
  * @author PC MSI
  */
 public class DiaChiService {
-    public List<DiaChiGiaoHang> getAll() {
+    public List<DiaChiGiaoHang> getAllDiaChi() {
 
         String sql = """
                     SELECT [Id]
@@ -39,7 +39,7 @@ public class DiaChiService {
         return null;
     }
 
-    public Boolean Add(DiaChiGiaoHang dc) {
+    public Boolean AddDiaChi(DiaChiGiaoHang dc) {
 
         String sql = """
                     INSERT INTO [dbo].[DiaChiGiaoHang]
@@ -47,7 +47,7 @@ public class DiaChiService {
                             ,[MaDiaChi]
                             ,[DiaChi]
                             ,[GhiChu])
-                    VALUES (?,?,?)
+                    VALUES (?,?,?,?)
                     """;
         int check = 0;
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
@@ -62,7 +62,7 @@ public class DiaChiService {
         return check > 0;
     }
 
-    public Boolean Update(DiaChiGiaoHang dc, String ma) {
+    public Boolean UpdateDiaChi(DiaChiGiaoHang dc, String ma) {
         String sql = """
                   UPDATE [dbo].[DiaChiGiaoHang]
                                     SET [Id] = ?
@@ -85,7 +85,7 @@ public class DiaChiService {
         return check > 0;
     }
 
-    public Boolean Xoa(String ma) {
+    public Boolean XoaDiaChi(String ma) {
         String sql = """
                     DELETE FROM [dbo].[DiaChiGiaoHang]
                             WHERE MaDiaChi = ?               

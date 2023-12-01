@@ -33,7 +33,7 @@ CREATE TABLE PhieuGiaoHang (
     DiaChiGiao NVARCHAR(500) NOT NULL,
     GhiChu NVARCHAR(500) NOT NULL,
     TongTien DECIMAL(20, 0) NOT NULL,
-	FOREIGN KEY (ID) REFERENCES ChiTietPhieuGiaoHang(ID)
+	
 );
 GO
 
@@ -57,6 +57,10 @@ SELECT PhieuGiaoHang.MaPhieu,PhieuGiaoHang.ID, PhieuGiaoHang.MaKhachHang,PhieuGi
                      FROM PhieuGiaoHang INNER JOIN ChiTietPhieuGiaoHang ON PhieuGiaoHang.ID=ChiTietPhieuGiaoHang.ID
 										INNER JOIN DiaChiGiaoHang ON PhieuGiaoHang.MaDiaChi = DiaChiGiaoHang.MaDiaChi
 										INNER JOIN TrangThaiGiaoHang ON PhieuGiaoHang.MaTrangThai = TrangThaiGiaoHang.MaTrangThai
+
+SELECT PhieuGiaoHang.MaPhieu,PhieuGiaoHang.ID, PhieuGiaoHang.MaKhachHang,PhieuGiaoHang.TenKhachHang,PhieuGiaoHang.SoDienThoai,PhieuGiaoHang.NgayGiao,
+                                             	PhieuGiaoHang.DiaChiGiao,PhieuGiaoHang.GhiChu,PhieuGiaoHang.TongTien,ChiTietPhieuGiaoHang.MaChiTiet,ChiTietPhieuGiaoHang.SoLuong
+                                                                  FROM PhieuGiaoHang INNER JOIN ChiTietPhieuGiaoHang ON PhieuGiaoHang.ID = ChiTietPhieuGiaoHang.ID
 CREATE TABLE KhachHang
 (	id_ma INT IDENTITY(1,1) PRIMARY KEY ,
 	tenKH NVARCHAR(50) NOT NULL, 
@@ -91,7 +95,7 @@ INSERT INTO PhuongThucThanhToan (MaPhuongThuc, TenPhuongThuc)
 VALUES ('SM16', N'Tiền mặt');
 
 CREATE TABLE DiaChiGiaoHang (
-	Id VARCHAR(50) PRIMARY KEY NOT NULL,
+	Id VARCHAR(50) PRIMARY KEY ,
     MaDiaChi NVARCHAR(50) NOT NULL,
     DiaChi NVARCHAR(500) NOT NULL,
     GhiChu NVARCHAR(500) NOT NULL,
@@ -110,7 +114,7 @@ VALUES ('5','MDC5', N'123 Main St', N'Giao hàng vào buổi chiều');
 
 CREATE TABLE NguoiNhanHang (
     MaNguoiNhan NVARCHAR(50) PRIMARY KEY NOT NULL,
-    Id VARCHAR(50) NOT NULL,
+    Id VARCHAR(50) ,
     HoTen NVARCHAR(255) NOT NULL,
     DienThoai VARCHAR(15) NOT NULL,
     FOREIGN KEY (Id) REFERENCES DiaChiGiaoHang(Id)
