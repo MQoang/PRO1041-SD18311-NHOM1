@@ -68,7 +68,7 @@ public class TrangThaiService {
                                        ,[MaPhieu] = ?
                                        ,[ThoiGianCapNhat] = ?
                                        ,[TrangThai] = ?
-                                  WHERE MaTrangThai = ?        
+                                WHERE MaTrangThai = ?        
                      """;
         int check = 0;
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {

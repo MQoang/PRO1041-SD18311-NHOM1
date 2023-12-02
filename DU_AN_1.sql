@@ -95,26 +95,26 @@ INSERT INTO PhuongThucThanhToan (MaPhuongThuc, TenPhuongThuc)
 VALUES ('SM16', N'Tiền mặt');
 
 CREATE TABLE DiaChiGiaoHang (
-	Id VARCHAR(50) PRIMARY KEY ,
+	ID VARCHAR(50) PRIMARY KEY NOT NULL,
     MaDiaChi NVARCHAR(50) NOT NULL,
     DiaChi NVARCHAR(500) NOT NULL,
     GhiChu NVARCHAR(500) NOT NULL,
 );
 GO
-INSERT INTO DiaChiGiaoHang (Id ,MaDiaChi, DiaChi, GhiChu)
-VALUES ('1','MDC1', N'Ngõ 1 Kiều Mai', N'Giao hàng vào buổi sáng');
-INSERT INTO DiaChiGiaoHang (Id, MaDiaChi, DiaChi, GhiChu)
-VALUES ('2','MDC2', N'16 Lạc Long Quân', N'Giao hàng vào buổi chiều');
-INSERT INTO DiaChiGiaoHang (Id, MaDiaChi, DiaChi, GhiChu)
-VALUES ('3','MDC3',N'Quận 9 Thủ Đức', N'Giao hàng vào buổi sáng');
-INSERT INTO DiaChiGiaoHang (Id, MaDiaChi, DiaChi, GhiChu)
-VALUES ('4','MDC4',N'Ngõ 5 Phan Đình Phùng', N'Giao hàng vào buổi sáng');
-INSERT INTO DiaChiGiaoHang (Id, MaDiaChi, DiaChi, GhiChu)
-VALUES ('5','MDC5', N'123 Main St', N'Giao hàng vào buổi chiều');
+INSERT INTO DiaChiGiaoHang (ID ,MaDiaChi, DiaChi, GhiChu)
+VALUES ('ID1','MDC1', N'Ngõ 1 Kiều Mai', N'Giao hàng vào buổi sáng');
+INSERT INTO DiaChiGiaoHang (ID, MaDiaChi, DiaChi, GhiChu)
+VALUES ('ID2','MDC2', N'16 Lạc Long Quân', N'Giao hàng vào buổi chiều');
+INSERT INTO DiaChiGiaoHang (ID, MaDiaChi, DiaChi, GhiChu)
+VALUES ('ID3','MDC3',N'Quận 9 Thủ Đức', N'Giao hàng vào buổi sáng');
+INSERT INTO DiaChiGiaoHang (ID, MaDiaChi, DiaChi, GhiChu)
+VALUES ('ID4','MDC4',N'Ngõ 5 Phan Đình Phùng', N'Giao hàng vào buổi sáng');
+INSERT INTO DiaChiGiaoHang (ID, MaDiaChi, DiaChi, GhiChu)
+VALUES ('ID5','MDC5', N'123 Main St', N'Giao hàng vào buổi chiều');
 
 CREATE TABLE NguoiNhanHang (
     MaNguoiNhan NVARCHAR(50) PRIMARY KEY NOT NULL,
-    Id VARCHAR(50) ,
+    ID VARCHAR(50) NOT NULL,
     HoTen NVARCHAR(255) NOT NULL,
     DienThoai VARCHAR(15) NOT NULL,
     FOREIGN KEY (Id) REFERENCES DiaChiGiaoHang(Id)
@@ -124,15 +124,15 @@ SELECT NguoiNhanHang.MaNguoiNhan,NguoiNhanHang.Id,NguoiNhanHang.HoTen,NguoiNhanH
 FROM NguoiNhanHang INNER JOIN DiaChiGiaoHang ON NguoiNhanHang.Id = DiaChiGiaoHang.Id
 
 INSERT INTO NguoiNhanHang (MaNguoiNhan, Id, HoTen, DienThoai)
-VALUES ('NNH111', '1', N'Trịnh Duy Khánh', '0963647382');
+VALUES ('NNH111', 'ID1', N'Trịnh Duy Khánh', '0963647382');
 INSERT INTO NguoiNhanHang (MaNguoiNhan, Id, HoTen, DienThoai)
-VALUES ('NNH114', '2', N'Trần Tiến Đạt', '0363846295');
+VALUES ('NNH114', 'ID2', N'Trần Tiến Đạt', '0363846295');
 INSERT INTO NguoiNhanHang (MaNguoiNhan, Id, HoTen, DienThoai)
-VALUES ('NNH115', '3', N'Phan Văn Tuân', '0973627463');
+VALUES ('NNH115', 'ID3', N'Phan Văn Tuân', '0973627463');
 INSERT INTO NguoiNhanHang (MaNguoiNhan, Id, HoTen, DienThoai)
-VALUES ('NNH116', '4', N'Nguyễn Văn An', '0384528541');
+VALUES ('NNH116', 'ID4', N'Nguyễn Văn An', '0384528541');
 INSERT INTO NguoiNhanHang (MaNguoiNhan, Id, HoTen, DienThoai)
-VALUES ('NNH117', '5', N'Đoàn Trung Thành', '0965847364');
+VALUES ('NNH117', 'ID5', N'Đoàn Trung Thành', '0965847364');
 
 CREATE TABLE TrangThaiGiaoHang (
     MaTrangThai NVARCHAR(50) PRIMARY KEY NOT NULL,

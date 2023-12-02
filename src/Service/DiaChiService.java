@@ -20,7 +20,7 @@ public class DiaChiService {
     public List<DiaChiGiaoHang> getAllDiaChi() {
 
         String sql = """
-                    SELECT [Id]
+                    SELECT [ID]
                           ,[MaDiaChi]
                           ,[DiaChi]
                           ,[GhiChu]
@@ -43,7 +43,7 @@ public class DiaChiService {
 
         String sql = """
                     INSERT INTO [dbo].[DiaChiGiaoHang]
-                            ([Id]
+                            ([ID]
                             ,[MaDiaChi]
                             ,[DiaChi]
                             ,[GhiChu])
@@ -65,7 +65,7 @@ public class DiaChiService {
     public Boolean UpdateDiaChi(DiaChiGiaoHang dc, String ma) {
         String sql = """
                   UPDATE [dbo].[DiaChiGiaoHang]
-                                    SET [Id] = ?
+                                    SET [ID] = ?
                                        ,[MaDiaChi] = ?
                                        ,[DiaChi] = ?
                                        ,[GhiChu] = ?

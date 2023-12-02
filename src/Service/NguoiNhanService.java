@@ -20,8 +20,8 @@ public class NguoiNhanService {
     public List<NguoiNhan> getAllNguoiNhan() {
 
         String sql = """
-                    SELECT NguoiNhanHang.MaNguoiNhan,NguoiNhanHang.Id,NguoiNhanHang.HoTen,NguoiNhanHang.DienThoai,DiaChiGiaoHang.MaDiaChi,DiaChiGiaoHang.DiaChi,DiaChiGiaoHang.GhiChu 
-                        FROM NguoiNhanHang INNER JOIN DiaChiGiaoHang ON NguoiNhanHang.Id = DiaChiGiaoHang.Id
+                    SELECT NguoiNhanHang.MaNguoiNhan,NguoiNhanHang.ID,NguoiNhanHang.HoTen,NguoiNhanHang.DienThoai,DiaChiGiaoHang.MaDiaChi,DiaChiGiaoHang.DiaChi,DiaChiGiaoHang.GhiChu 
+                        FROM NguoiNhanHang INNER JOIN DiaChiGiaoHang ON NguoiNhanHang.ID = DiaChiGiaoHang.ID
                     """;
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareCall(sql)) {
             ResultSet rs = ps.executeQuery();
@@ -40,7 +40,7 @@ public class NguoiNhanService {
         String sql = """
                     INSERT INTO [dbo].[NguoiNhanHang]
                                     ([MaNguoiNhan]
-                                    ,[Id]
+                                    ,[ID]
                                     ,[HoTen]
                                     ,[DienThoai])
                               VALUES (?,?,?,?)
@@ -78,7 +78,7 @@ public class NguoiNhanService {
         String sql = """
                    UPDATE [dbo].[NguoiNhanHang]
                                    SET [MaNguoiNhan] = ?
-                                      ,[Id] = ?
+                                      ,[ID] = ?
                                       ,[HoTen] = ?
                                       ,[DienThoai] = ?
                                    WHERE MaNguoiNhan = ?
