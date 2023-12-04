@@ -256,6 +256,7 @@ public class ViewKhanh extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        btnLamMoiChiTiet = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -855,6 +856,16 @@ public class ViewKhanh extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel23.setText("DANH SÁCH CHI TIẾT");
 
+        btnLamMoiChiTiet.setBackground(new java.awt.Color(255, 255, 153));
+        btnLamMoiChiTiet.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLamMoiChiTiet.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imager/Refresh.png"))); // NOI18N
+        btnLamMoiChiTiet.setText("Làm Mới");
+        btnLamMoiChiTiet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamMoiChiTietActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -879,16 +890,17 @@ public class ViewKhanh extends javax.swing.JFrame {
                                         .addComponent(txtSoLuong1)
                                         .addComponent(txtGiaBan))
                                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel22))
-                        .addGap(62, 62, 62)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnThemChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                            .addComponent(btnSuaChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnXoaChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnThoatChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel22)))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jLabel23)))
+                .addGap(62, 62, 62)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnThoatChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnThemChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSuaChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnXoaChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLamMoiChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(29, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -907,7 +919,8 @@ public class ViewKhanh extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addComponent(btnXoaChiTiet)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnThoatChiTiet))
+                        .addComponent(btnLamMoiChiTiet)
+                        .addGap(8, 8, 8))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addComponent(jLabel22)
                         .addGap(14, 14, 14)
@@ -930,11 +943,12 @@ public class ViewKhanh extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
                             .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel23)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel23)
+                    .addComponent(btnThoatChiTiet))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -947,7 +961,7 @@ public class ViewKhanh extends javax.swing.JFrame {
                     .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1577,6 +1591,9 @@ public class ViewKhanh extends javax.swing.JFrame {
         txtGhiChu.setText(null);
         txtTongTien.setText(null);
         txtTimKiem.setText(null);
+        listphieugiaohang = giaoHangService.getAllPhieuGiao();
+        ShowDataPhieuGiao();
+        showViTriPhieuGiao(0);
     }//GEN-LAST:event_btnLamMoiPhieuGiaoActionPerformed
 
     private void btnThoatChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatChiTietActionPerformed
@@ -1673,6 +1690,9 @@ public class ViewKhanh extends javax.swing.JFrame {
         txtMaDiaChi.setText(null);
         txtDiaChi2.setText(null);
         txtGhiChu2.setText(null);
+        listNguoiNhan = nguoiNhanService.getAllNguoiNhan();
+        ShowDataNguoiNhan();
+        showViTriNguoiNhan(0);
     }//GEN-LAST:event_btnLamMoiNguoiNhanActionPerformed
 
     private void btnThoatNguoiNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatNguoiNhanActionPerformed
@@ -1727,6 +1747,9 @@ public class ViewKhanh extends javax.swing.JFrame {
         txtMaDiaChi1.setText(null);
         txtDiaChi4.setText(null);
         txtGhiChu4.setText(null);
+        listdiachi = diaChiService.getAllDiaChi();
+        ShowDataDiaChi();
+        showViTriDiaChi(0);
     }//GEN-LAST:event_btnLamMoiDiaChiActionPerformed
 
     private void tblDiaChiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDiaChiMouseClicked
@@ -1747,6 +1770,17 @@ public class ViewKhanh extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnTimKiemActionPerformed
+
+    private void btnLamMoiChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiChiTietActionPerformed
+        txtMaChiTiet.setText(null);
+        txtId.setText(null);
+        txtMaSanPham.setText(null);
+        txtSoLuong1.setText(null);
+        txtGiaBan.setText(null);
+        listchitiet = chiTietService.getAllChiTiet();
+        ShowDataChitiet();
+        showViTriChiTiet(0);
+    }//GEN-LAST:event_btnLamMoiChiTietActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1784,6 +1818,7 @@ public class ViewKhanh extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLamMoiChiTiet;
     private javax.swing.JButton btnLamMoiDiaChi;
     private javax.swing.JButton btnLamMoiNguoiNhan;
     private javax.swing.JButton btnLamMoiPhieuGiao;
