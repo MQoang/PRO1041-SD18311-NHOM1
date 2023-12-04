@@ -20,12 +20,12 @@ public class BienThe {
     private String card;
     private String oCung;
     private BigDecimal giaBan;
-    private String soLuongMay;
+    
 
     public BienThe() {
     }
 
-    public BienThe(String maBienThe, String maSanPham, String mauSac, String CPU, String ram, String card, String oCung, BigDecimal giaBan, String soLuongMay) {
+    public BienThe(String maBienThe, String maSanPham, String mauSac, String CPU, String ram, String card, String oCung, BigDecimal giaBan) {
         this.maBienThe = maBienThe;
         
         this.maSanPham = maSanPham;
@@ -35,13 +35,15 @@ public class BienThe {
         this.card = card;
         this.oCung = oCung;
         this.giaBan = giaBan;
-        this.soLuongMay = soLuongMay;
+       
     }
 
     @Override
     public String toString() {
-        return "BienThe{" + "maBienThe=" + maBienThe +  ", maSanPham=" + maSanPham + ", mauSac=" + mauSac + ", CPU=" + CPU + ", ram=" + ram + ", card=" + card + ", oCung=" + oCung + ", giaBan=" + giaBan + ", soLuongMay=" + soLuongMay + '}';
+        return "BienThe{" + "maBienThe=" + maBienThe + ", maSanPham=" + maSanPham + ", mauSac=" + mauSac + ", CPU=" + CPU + ", ram=" + ram + ", card=" + card + ", oCung=" + oCung + ", giaBan=" + giaBan + '}';
     }
+
+  
 
     public String getMaBienThe() {
         return maBienThe;
@@ -109,14 +111,7 @@ public class BienThe {
         this.giaBan = giaBan;
     }
 
-    public String getSoLuongMay() {
-        return soLuongMay;
-    }
-
-    public void setSoLuongMay(String soLuongMay) {
-        this.soLuongMay = soLuongMay;
-    }
-
+   
     
     
     

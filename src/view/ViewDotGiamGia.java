@@ -39,7 +39,7 @@ public class ViewDotGiamGia extends javax.swing.JFrame {
         dsdot = dotGiamGiaService.getAll();
         tblModel = (DefaultTableModel) tblGiamGia.getModel();
         showDuLieu(dsdot);
-        new Login(this, true).setVisible(false);
+        //new Login(this, true).setVisible(false);
         dsma = maVoucherService.getAll();
         tbm = (DefaultTableModel) tblMaVoucher.getModel();
         showData(dsma);
@@ -113,6 +113,8 @@ public class ViewDotGiamGia extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtMaDotGiamGia = new javax.swing.JTextField();
         txtTen = new javax.swing.JTextField();
+        jdcBatDau = new com.toedter.calendar.JDateChooser();
+        jdcKetThuc = new com.toedter.calendar.JDateChooser();
         jPanel1 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -451,9 +453,12 @@ public class ViewDotGiamGia extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
                 .addGap(13, 13, 13)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtMaDotGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtTen, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(txtMaDotGiamGia, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jdcKetThuc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jdcBatDau, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 85, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -468,9 +473,13 @@ public class ViewDotGiamGia extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtTen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(20, 20, 20)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jdcBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jdcKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1041,6 +1050,8 @@ public class ViewDotGiamGia extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private com.toedter.calendar.JDateChooser jdcBatDau;
+    private com.toedter.calendar.JDateChooser jdcKetThuc;
     private javax.swing.JRadioButton rdo1015;
     private javax.swing.JRadioButton rdo2025;
     private javax.swing.JRadioButton rdo2635;

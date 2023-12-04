@@ -28,14 +28,14 @@ public class BienTheService {
                            ,[Card]
                            ,[Ocung]
                            ,[GiaBan]
-                           ,[SoLuongMay]
+                          
                        FROM [dbo].[BienThe]
                      """;
         try (Connection con = DBConnect.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             List<BienThe> lists = new ArrayList<>();
             while (rs.next()) {
-                BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8), rs.getString(9));
+                BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8));
                 lists.add(bt);
             }
             return lists;
@@ -72,7 +72,7 @@ public class BienTheService {
             ps.setObject(6, bt.getCard());
             ps.setObject(7, bt.getoCung());
             ps.setObject(8, bt.getGiaBan());
-            ps.setObject(9, bt.getSoLuongMay());
+            
             check = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,7 +107,7 @@ public class BienTheService {
                             ,[Card] = ?
                             ,[Ocung] = ?
                             ,[GiaBan] = ?
-                            ,[SoLuongMay] = ?
+                            
                        WHERE MaBienThe = ?;
                       """;
         int check = 0;
@@ -121,7 +121,7 @@ public class BienTheService {
             ps.setObject(6, bt.getCard());
             ps.setObject(7, bt.getoCung());
             ps.setObject(8, bt.getGiaBan());
-            ps.setObject(9, bt.getSoLuongMay());
+           
             ps.setObject(10, ma);
             check = ps.executeUpdate();
         } catch (Exception e) {
@@ -150,8 +150,7 @@ public class BienTheService {
             List<BienThe> findsql = new ArrayList<>();
 
             while (rs.next()) {
-                BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8), rs.getString(9));
-                findsql.add(bt);
+ BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8));                findsql.add(bt);
             }
             return findsql;
         } catch (Exception e) {
@@ -180,8 +179,7 @@ public class BienTheService {
             List<BienThe> findsql = new ArrayList<>();
 
             while (rs.next()) {
-                BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8), rs.getString(9));
-                findsql.add(bt);
+ BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8));                findsql.add(bt);
             }
             return findsql;
         } catch (Exception e) {
@@ -210,8 +208,7 @@ public class BienTheService {
             List<BienThe> findsql = new ArrayList<>();
 
             while (rs.next()) {
-                BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8), rs.getString(9));
-                findsql.add(bt);
+ BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8));                findsql.add(bt);
             }
             return findsql;
         } catch (Exception e) {
@@ -240,8 +237,7 @@ public class BienTheService {
             List<BienThe> findsql = new ArrayList<>();
 
             while (rs.next()) {
-                BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8), rs.getString(9));
-                findsql.add(bt);
+ BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8));                findsql.add(bt);
             }
             return findsql;
         } catch (Exception e) {
@@ -270,8 +266,7 @@ public class BienTheService {
             List<BienThe> findsql = new ArrayList<>();
 
             while (rs.next()) {
-                BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8), rs.getString(9));
-                findsql.add(bt);
+ BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8));                findsql.add(bt);
             }
             return findsql;
         } catch (Exception e) {
@@ -302,8 +297,7 @@ public class BienTheService {
             List<BienThe> findsql = new ArrayList<>();
 
             while (rs.next()) {
-                BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8), rs.getString(9));
-                findsql.add(bt);
+ BienThe bt = new BienThe(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getBigDecimal(8));                findsql.add(bt);
             }
             return findsql;
         } catch (Exception e) {

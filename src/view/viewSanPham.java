@@ -40,7 +40,7 @@ public class viewSanPham extends javax.swing.JFrame {
         showTableSanPham();
         listBienThe = serviceBienThe.getAll();
         modelBienThe = (DefaultTableModel) tblVieBienThe.getModel();
-        showTableBT(listBienThe);
+        showTableBT();
         listMaIMEI = serviceMaIMEI.getAll();
         modelMaIMEI = (DefaultTableModel) tblIMEI.getModel();
         showTableMaIMEI();
@@ -55,11 +55,11 @@ public class viewSanPham extends javax.swing.JFrame {
         }
     }
 
-    public void showTableBT(List<BienThe> listbt) {
+    public void showTableBT() {
         modelBienThe.setRowCount(0);
         for (BienThe bt : listBienThe) {
             modelBienThe.addRow(new Object[]{
-                bt.getMaBienThe(), bt.getMaSanPham(), bt.getMauSac(), bt.getCPU(), bt.getRam(), bt.getCard(), bt.getoCung(), bt.getGiaBan(), bt.getSoLuongMay()
+                bt.getMaBienThe(), bt.getMaSanPham(), bt.getMauSac(), bt.getCPU(), bt.getRam(), bt.getCard(), bt.getoCung(), bt.getGiaBan()
             });
         }
     }
@@ -74,11 +74,7 @@ public class viewSanPham extends javax.swing.JFrame {
     }
 
     public void showDetalSanPham(int index) {
-        for (BienThe bt : listBienThe) {
-            for(int i = 0; i <= index; i ++){
-                showTableBT(listBienThe);
-            }
-        }
+        
         SanPham sp = listSanPham.get(index);
         
         txtMaSP.setText(sp.getMaSanPham());
@@ -87,7 +83,7 @@ public class viewSanPham extends javax.swing.JFrame {
         if(sp.getHeDieuHanh() == "WinDows"){
             cboHeDieuHanh.setSelectedItem("WinDows");
         }
-        if(sp.getHeDieuHanh() == "MacOS"){
+        else if(sp.getHeDieuHanh() == "MacOS"){
             cboHeDieuHanh.setSelectedItem("MacOS");
         }
         if(sp.getHeDieuHanh() == "Linux"){
@@ -111,7 +107,7 @@ public class viewSanPham extends javax.swing.JFrame {
         txtMauSac.setText(bt.getMauSac());
         txtOCung.setText(bt.getoCung());
         txtRam.setText(bt.getRam());
-        txtSoLuongMay.setText(bt.getSoLuongMay());
+        
 
     }
     
@@ -169,7 +165,7 @@ public class viewSanPham extends javax.swing.JFrame {
         bt.setMauSac(mauSac);
         bt.setRam(ram);
         bt.setoCung(oCung);
-        bt.setSoLuongMay(soLuongMay);
+        
         return bt;
     }
     private IMEI getFormIMEI(){
