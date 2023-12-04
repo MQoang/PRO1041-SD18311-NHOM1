@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-public class viewSanPham1 extends javax.swing.JFrame {
+public class GiaoDienPhieuDoiCoMenu extends javax.swing.JFrame {
     ArrayList<HoaDon> listHD = new ArrayList<>();
     HoaDonService svHD = new HoaDonService();
     DefaultTableModel dtm = new DefaultTableModel();
@@ -18,7 +18,7 @@ public class viewSanPham1 extends javax.swing.JFrame {
     ArrayList<PhieuDoi> listPD = new ArrayList<>();
     PhieuDoiService svPD = new PhieuDoiService();
     
-    public viewSanPham1() {
+    public GiaoDienPhieuDoiCoMenu() {
         initComponents();
         setLocationRelativeTo(null);
         dtm = (DefaultTableModel) tblHoaDon.getModel();
@@ -817,21 +817,23 @@ public class viewSanPham1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(viewSanPham1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GiaoDienPhieuDoiCoMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(viewSanPham1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GiaoDienPhieuDoiCoMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(viewSanPham1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GiaoDienPhieuDoiCoMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(viewSanPham1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GiaoDienPhieuDoiCoMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new viewSanPham1().setVisible(true);
+                new GiaoDienPhieuDoiCoMenu().setVisible(true);
             }
         });
     }
